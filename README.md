@@ -1,7 +1,3 @@
-Got it! Here’s a more straightforward and personal revision:
-
----
-
 # Mirai
 
 Welcome to **Mirai**! This project is just getting started. Here’s a look at what’s planned and what we have in mind for the future.
