@@ -30,5 +30,11 @@
     "tsx": "^4.16.5",
     "typescript": "^5.2.2",
     "vite": "^5.3.1"
-  }
+  },
+  "keywords": [
+    "manga",
+    "reader",
+    "desktop",
+    "tauri"
+  ]
 }
