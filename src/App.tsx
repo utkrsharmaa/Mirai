@@ -1,5 +1,5 @@
-import React from 'react';
-import AdvancedSearch from './components/AdvancedSearch';
+import './App.css'
+import AdvancedSearch from './components/AdvancedSearch'
 
 const App: React.FC = () => {
   return (
@@ -11,4 +11,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default App

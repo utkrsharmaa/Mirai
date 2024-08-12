@@ -1,1 +1,0 @@
-// pass down props and state from tsx rendering components to searchManga service

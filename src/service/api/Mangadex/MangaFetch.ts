@@ -1,10 +1,10 @@
-import axios from 'axios';
-  // search options for manga lookup
+import axios from 'axios';  // search options for manga lookup
+import { filterAttributes, filterRelationships } from '../../../utils/filterData';
   interface SearchOptions {
     title: string;
     includedTagNames?: string[],
     excludedTagNames?: string[],
-  
+
   }
   // Define the type for the tag
   type Tag = {
@@ -35,6 +35,21 @@ import axios from 'axios';
       url: `${baseUrl}/manga`,
       params,
     });
-    console.log(resp.data.data);
-    return (resp.data.data);
-  }
+    
+    const rawData = resp.data.data;
+
+    rawData.forEach(async (item: any) => {
+      // Destructure id, attributes, and relationships from each item in the array
+      const { id, attributes, relationships } = item;
+
+      const Attributes = filterAttributes(attributes);
+      const Relationships = filterRelationships(relationships);
+      const mangaData = {
+        id,
+        Attributes,
+        Relationships,
+      };
+      console.log(mangaData);
+    });
+
+};
