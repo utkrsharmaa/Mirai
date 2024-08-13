@@ -1,12 +1,20 @@
-import './App.css'
-import AdvancedSearch from './container/AdvancedSearch'
+import './App.css';
+import { AdvancedSearch } from './containers';
 
 const App: React.FC = () => {
   return (
     <AdvancedSearch
-      title="Chainsaw Man" 
+      title="Chainsaw" 
       includedTagNames={['']} 
-      excludedTagNames={['Romance']} 
+      excludedTagNames={['']}
+      filters= {{
+        publicationDemographic: [],
+        status: [],
+        contentRating: ['safe'],
+      }}
+      order={{
+        rating: "desc",
+      }}
     />
   );
 };

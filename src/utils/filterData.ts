@@ -1,36 +1,8 @@
-type Tag = {
-  id: string,
-  attributes: {
-    name: {
-      en: string;
-    }
-  }
-}
-
-type Attributes = {
-  title: {
-    en: string;
-  },
-  altTitle: AltTitle[];
-  description: {
-    en: string;
-  }
-  originalLanguage: string,
-  publicationDemographic: string,
-  status: string,
-  year: number | string,
-  contentRating: string,
-  tags: Tag,
-  state: string,
-  latestUploadedChapter: string,
-}
-
 type AltTitle = {
   [key: string]: string;
 }
 
 export const filterAttributes = (attributes: any ): Attributes => {
-  console.log("attributes filtering")
   return attributes = {
     title: attributes.title.en,
     description: attributes.description.en,
@@ -54,30 +26,7 @@ type Relationship = {
   id: string;
 };
 
-type Relationships = {
-  author: {
-    id: string,
-    attributes: {
-      name: string
-    }
-  };
-  artist: {
-    id: string,
-    attributes: {
-      name: string
-    }
-  };
-  cover_art: {
-    id: string,
-    attributes: {
-      coverUrl: string;
-      fileName: string
-    }
-  };
-};
-
 export const filterRelationships = (id: string, relationships: Relationship[]): Relationships => {
-  console.log("relationships filtering");
 
   // Initialize an empty object for the filtered relationships
   const filteredRelationships: Relationships = {
