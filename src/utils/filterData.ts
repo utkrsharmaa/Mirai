@@ -15,6 +15,7 @@ interface Attributes {
   description: {
     en: string;
   }
+  publicationDemographic: string,
   status: string,
   year: number | string,
   contentRating: string,
@@ -35,6 +36,7 @@ export const filterAttributes = (attributes: any ): Attributes => {
     altTitle: attributes.altTitles.filter((altTitle: AltTitle) => 
       Object.keys(altTitle).includes(attributes.originalLanguage)
     ).map((altTitle: AltTitle) => altTitle[attributes.originalLanguage]), // Extracting the title based on language
+    publicationDemographic: attributes.publicationDemographic,
     tags: attributes.tags.map((tag: any) => tag.attributes.name.en), // Accessing the 'en' property of 'name'
     status: attributes.status,
     year: attributes.year,
@@ -45,32 +47,69 @@ export const filterAttributes = (attributes: any ): Attributes => {
 };
 
 type Relationship = {
+  attributes: any;
   type: string;
   id: string;
 };
 
 type Relationships = {
-  author?: string;
-  artist?: string;
-  cover_art?: string;
+  author: {
+    id: string,
+    attributes: {
+      name: string
+    }
+  };
+  artist: {
+    id: string,
+    attributes: {
+      name: string
+    }
+  };
+  cover_art: {
+    id: string,
+    attributes: {
+      fileName: string
+    }
+  };
 };
 
 export const filterRelationships = (relationships: Relationship[]): Relationships => {
   console.log("relationships filtering");
 
   // Initialize an empty object for the filtered relationships
-  const filteredRelationships: Relationships = {};
+  const filteredRelationships: Relationships = {
+    author: {
+      id: "",
+      attributes: {
+        name: ""
+      }
+    },
+    artist: {
+      id: "",
+      attributes: {
+        name: ""
+      }
+    },
+    cover_art: {
+      id: "",
+      attributes: {
+        fileName: ""
+      }
+    }
+  };
 
   // Loop through the array and extract ids for the desired types
   relationships.forEach((relationship) => {
     if (relationship.type === 'author') {
-      filteredRelationships.author = relationship.id;
+      filteredRelationships.author.id = relationship.id;
+      filteredRelationships.author.attributes.name = relationship.attributes.name;
     } else if (relationship.type === 'artist') {
-      filteredRelationships.artist = relationship.id;
+      filteredRelationships.artist.id = relationship.id;
+      filteredRelationships.artist.attributes.name = relationship.attributes.name;
     } else if (relationship.type === 'cover_art') {
-      filteredRelationships.cover_art = relationship.id;
+      filteredRelationships.cover_art.id = relationship.id;
+      filteredRelationships.cover_art.attributes.fileName = relationship.attributes.fileName;
     }
   });
-
   return filteredRelationships;
 };

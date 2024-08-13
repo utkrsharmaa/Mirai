@@ -4,7 +4,6 @@ import { filterAttributes, filterRelationships } from '../../../utils/filterData
     title: string;
     includedTagNames?: string[],
     excludedTagNames?: string[],
-
   }
   // Define the type for the tag
   type Tag = {
@@ -28,7 +27,7 @@ import { filterAttributes, filterRelationships } from '../../../utils/filterData
       .filter((tag: Tag) => excludedTagNames?.includes(tag.attributes.name.en))
       .map((tag: Tag) => tag.id)
     // declaring search Parameters for fetch
-    const params: any = {title, includedTags: includedTagIDs, excludedTags: excludedTagIDs}
+    const params: any = {title, includedTags: includedTagIDs, excludedTags: excludedTagIDs, includes: ['cover_art', 'artist', 'author']}
     // sending the request to get manga data object
     const resp = await axios ({
       method: 'GET',
@@ -51,5 +50,4 @@ import { filterAttributes, filterRelationships } from '../../../utils/filterData
       };
       console.log(mangaData);
     });
-
 };
