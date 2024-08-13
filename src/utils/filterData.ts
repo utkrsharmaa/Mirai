@@ -1,4 +1,4 @@
-interface Tag {
+type Tag = {
   id: string,
   attributes: {
     name: {
@@ -7,7 +7,7 @@ interface Tag {
   }
 }
 
-interface Attributes {
+type Attributes = {
   title: {
     en: string;
   },
@@ -15,6 +15,7 @@ interface Attributes {
   description: {
     en: string;
   }
+  originalLanguage: string,
   publicationDemographic: string,
   status: string,
   year: number | string,
@@ -24,7 +25,7 @@ interface Attributes {
   latestUploadedChapter: string,
 }
 
-interface AltTitle {
+type AltTitle = {
   [key: string]: string;
 }
 
@@ -36,6 +37,7 @@ export const filterAttributes = (attributes: any ): Attributes => {
     altTitle: attributes.altTitles.filter((altTitle: AltTitle) => 
       Object.keys(altTitle).includes(attributes.originalLanguage)
     ).map((altTitle: AltTitle) => altTitle[attributes.originalLanguage]), // Extracting the title based on language
+    originalLanguage: attributes.originalLanguage,
     publicationDemographic: attributes.publicationDemographic,
     tags: attributes.tags.map((tag: any) => tag.attributes.name.en), // Accessing the 'en' property of 'name'
     status: attributes.status,
@@ -74,7 +76,7 @@ type Relationships = {
   };
 };
 
-export const filterRelationships = (relationships: Relationship[], id: string): Relationships => {
+export const filterRelationships = (id: string, relationships: Relationship[]): Relationships => {
   console.log("relationships filtering");
 
   // Initialize an empty object for the filtered relationships

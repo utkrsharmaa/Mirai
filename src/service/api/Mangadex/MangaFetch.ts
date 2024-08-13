@@ -1,6 +1,6 @@
 import axios from 'axios';  // search options for manga lookup
 import { filterAttributes, filterRelationships } from '../../../utils/filterData';
-  interface SearchOptions {
+  type SearchOptions = {
     title: string;
     includedTagNames?: string[],
     excludedTagNames?: string[],
@@ -40,13 +40,10 @@ import { filterAttributes, filterRelationships } from '../../../utils/filterData
     rawData.forEach(async (item: any) => {
       // Destructure id, attributes, and relationships from each item in the array
       const { id, attributes, relationships } = item;
-
-      const Attributes = filterAttributes(attributes);
-      const Relationships = filterRelationships(relationships, id);
       const mangaData = {
-        id,
-        Attributes,
-        Relationships,
+        id: id,
+        attributes: filterAttributes(attributes),
+        relationships: filterRelationships(id, relationships)
       };
       console.log(mangaData);
     });

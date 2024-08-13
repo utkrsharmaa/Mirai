@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import fetchIdByName from '../service/api/Mangadex/MangaFetch';
 
-interface SearchQueryProps {
+type SearchQueryProps = {
   title: string;
   includedTagNames?: string[];
   excludedTagNames?: string[];
