@@ -68,12 +68,13 @@ type Relationships = {
   cover_art: {
     id: string,
     attributes: {
+      coverUrl: string;
       fileName: string
     }
   };
 };
 
-export const filterRelationships = (relationships: Relationship[]): Relationships => {
+export const filterRelationships = (relationships: Relationship[], id: string): Relationships => {
   console.log("relationships filtering");
 
   // Initialize an empty object for the filtered relationships
@@ -93,7 +94,8 @@ export const filterRelationships = (relationships: Relationship[]): Relationship
     cover_art: {
       id: "",
       attributes: {
-        fileName: ""
+        fileName: "",
+        coverUrl: ""
       }
     }
   };
@@ -111,5 +113,10 @@ export const filterRelationships = (relationships: Relationship[]): Relationship
       filteredRelationships.cover_art.attributes.fileName = relationship.attributes.fileName;
     }
   });
+
+  const mangaId = id;
+  const fileName = filteredRelationships.cover_art.attributes.fileName;
+  const coverURL = `https://uploads.mangadex.org/covers/${mangaId}/${fileName}`;
+  filteredRelationships.cover_art.attributes.coverUrl = coverURL;
   return filteredRelationships;
 };

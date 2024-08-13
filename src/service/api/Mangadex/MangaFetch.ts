@@ -42,7 +42,7 @@ import { filterAttributes, filterRelationships } from '../../../utils/filterData
       const { id, attributes, relationships } = item;
 
       const Attributes = filterAttributes(attributes);
-      const Relationships = filterRelationships(relationships);
+      const Relationships = filterRelationships(relationships, id);
       const mangaData = {
         id,
         Attributes,
