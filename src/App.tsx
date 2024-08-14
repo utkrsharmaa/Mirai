@@ -8,9 +8,7 @@ const App: React.FC = () => {
       includedTagNames={['']} 
       excludedTagNames={['']}
       filters= {{
-        publicationDemographic: [],
-        status: [],
-        contentRating: ['safe'],
+        status:['ongoing'],
       }}
       order={{
         rating: "desc",

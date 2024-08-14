@@ -1,7 +1,6 @@
 import axios from 'axios';  // search options for manga lookup
 import { filterAttributes, filterRelationships } from '../../../utils/filterData';
 
-
 export async function SearchManga ({title, includedTagNames, excludedTagNames, filters, order}: SearchOptions): Promise<any> {
   const baseUrl = 'https://api.mangadex.org';
   //transform Tag arrays into arrays of UUIDs using the /manga/tags resource.

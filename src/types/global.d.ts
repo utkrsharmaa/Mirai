@@ -11,15 +11,22 @@ type SortOptions = {
   rating?: SortOrder;
 };
 
+
+type publicationDemographic = "shounen" | "shoujo" | "josei" | "seinen";
+type status = "ongoing" | "completed" | "hiatus" | "cancelled";
+type contentRating = "safe" | "suggestive" | "erotica" | "pornographic";
+
+type Filters = {
+  publicationDemographic?: publicationDemographic[];
+  status?: status[];
+  contentRating?: contentRating[]; 
+}
+
 type SearchOptions = {
   title: string;
   includedTagNames?: string[];
   excludedTagNames?: string[];
-  filters: {
-    publicationDemographic?: string[];
-    status?: string[];
-    contentRating?: string[];
-  },
+  filters: Filters,
   order: SortOptions,
 }
 
