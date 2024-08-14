@@ -1,11 +1,7 @@
-type AltTitle = {
-  [key: string]: string;
-}
-
 export const filterAttributes = (attributes: any ): Attributes => {
   return attributes = {
-    title: attributes.title.en,
-    description: attributes.description.en,
+    title: attributes.title,
+    description: attributes.description,
     altTitle: attributes.altTitles.filter((altTitle: AltTitle) => 
       Object.keys(altTitle).includes(attributes.originalLanguage)
     ).map((altTitle: AltTitle) => altTitle[attributes.originalLanguage]), // Extracting the title based on language

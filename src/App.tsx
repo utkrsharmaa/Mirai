@@ -1,17 +1,9 @@
 import './App.css';
-import { AdvancedSearch } from './containers';
+import { MainContainer, SearchContainer } from './containers';
 
 const App: React.FC = () => {
   return (
-    <AdvancedSearch
-      title="" 
-      includedTagNames={['']} 
-      excludedTagNames={['']}
-      filters= {{
-      }}
-      order={{
-      }}
-    />
+    <><MainContainer /><SearchContainer /></>
   );
 };
 

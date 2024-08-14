@@ -43,7 +43,6 @@ export async function SearchManga ({title, includedTagNames, excludedTagNames, f
       return mangaData;
     })
   );
-  console.log(mangaDataArray);
   // Return the accumulated array
   return mangaDataArray;
 };

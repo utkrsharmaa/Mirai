@@ -12,8 +12,9 @@ export const AdvancedSearch = (params: SearchOptions) => {
         <ul>
           {manga.map((item, index) => (
             <div key={index}>
-              <li className="font-semibold">{item.attributes.title}</li>            
+              <li className="font-semibold">{item.attributes.title.en}</li>      
               <img className="justify-center w-48 h-64 object-contain" src={item.relationships.cover_art.attributes.coverUrl} alt="" />
+              <p>{item.attributes.year}</p>
             </div>
           ))}
         </ul>
