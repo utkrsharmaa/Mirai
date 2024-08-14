@@ -1,22 +1,8 @@
-import { useEffect, useState } from 'react';
-import { SearchManga } from '../service/api/Mangadex/MangaFetch';
+import { useAxios } from "../hooks/useAxios";
 
-export const AdvancedSearch = ({ title, includedTagNames, excludedTagNames, filters, order }: SearchOptions) => {
-  const [manga, setManga] = useState<Manga[]>([]);
-  const [error, setError] = useState<string | null>(null);
+export const AdvancedSearch = (params: SearchOptions) => {
 
-  useEffect(() => {
-    const fetchManga = async () => {
-      try {
-        const mangaData = await SearchManga({ title, includedTagNames, excludedTagNames, filters, order });
-        setManga(mangaData);
-      } catch (error) {
-        setError("Failed to fetch manga data");
-      }
-    };
-
-    fetchManga();
-  }, [title, includedTagNames, excludedTagNames, filters, order]);
+  const {manga, error} = useAxios(params);
 
   return (
     <div>
@@ -26,8 +12,8 @@ export const AdvancedSearch = ({ title, includedTagNames, excludedTagNames, filt
         <ul>
           {manga.map((item, index) => (
             <div key={index}>
-              <li>{item.attributes.title}</li>            
-              <img src={item.relationships.cover_art.attributes.coverUrl} alt="" />
+              <li className="font-semibold">{item.attributes.title}</li>            
+              <img className="justify-center w-48 h-64 object-contain" src={item.relationships.cover_art.attributes.coverUrl} alt="" />
             </div>
           ))}
         </ul>

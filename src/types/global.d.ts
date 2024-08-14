@@ -26,8 +26,8 @@ type SearchOptions = {
   title: string;
   includedTagNames?: string[];
   excludedTagNames?: string[];
-  filters: Filters,
-  order: SortOptions,
+  filters?: Filters,
+  order?: SortOptions,
 }
 
 type Tag = {

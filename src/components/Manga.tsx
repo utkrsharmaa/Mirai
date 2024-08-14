@@ -1,0 +1,1 @@
+// Single manga listing for the Search
