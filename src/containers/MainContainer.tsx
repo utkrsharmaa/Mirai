@@ -1,17 +1,13 @@
-// import Navbar here
-// import Home feed here
-// import Explore feed here
-// import Settings here
 import { Collection, Home, Navbar, Settings, PreviewFeed } from "../components";
+
+/*
+This container will house all the state logic of render
+de-rendering, active and inactive states etc.
+*/
 
 export const MainContainer = () => {
   return (
     <div>
-      <Navbar/>
-      <Home/>
-      <Collection/>
-      <Settings/>
-      <PreviewFeed/>
     </div>
   )
 }

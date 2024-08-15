@@ -1,5 +1,5 @@
 export const Collection = () => {
   return (
-    <div>Collection</div>
+    <div><p>Collection</p></div>
   )
 }

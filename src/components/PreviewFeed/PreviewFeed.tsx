@@ -1,5 +1,5 @@
 export const PreviewFeed = () => {
   return (
-    <div>PreviewFeed</div>
+    <div><p>PreviewFeed</p></div>
   )
 }
