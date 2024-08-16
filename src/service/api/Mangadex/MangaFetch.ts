@@ -19,6 +19,7 @@ export async function SearchManga ({title, includedTagNames, excludedTagNames, f
     excludedTags: excludedTagIDs,
     ...filters,
     order,
+    limit: 1,
     includes: ['cover_art', 'artist', 'author']
   }
   // sending the request to get manga data object

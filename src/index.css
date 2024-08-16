@@ -43,8 +43,13 @@ p, a {
 }
 
 a:hover {
-  color: var(--accent);
+  color: var(--primary);
   cursor: pointer;
+  box-shadow: var(--primary);
+}
+
+a:active {
+  color: var(--text)
 }
 
 button {
