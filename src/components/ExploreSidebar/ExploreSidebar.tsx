@@ -1,18 +1,17 @@
-import { Manga } from "../Manga";
+// import { Manga } from "../Manga";
 // import { useAxios } from "../../hooks/useAxios";
-import { useAreaContext } from "../../hooks/activeAreaContext";
 
 export const ExploreSidebar = (/*params: SearchOptions*/) => {
   // const { manga, error } = useAxios(params);
   // manga ? console.log(manga) : console.log(error);
-  const { setArea } = useAreaContext();
   return (
     <div>
-      <div className="flex w-[inherit] fixed top-0 pt-5 pl-5">
-        <a onClick={() => setArea("Preview")}>Explore</a>
+      <div className="sticky top-0 left-0 w-full h-[6rem] flex p-5 text-center bg-secondary">
+        <p className="font-bold text-xl select-none">Explore</p>
       </div>
-      <div className="results p-[6.25rem] h-full flex justify-center items-center">
-        <Manga />
+      <div className="search flex flex-col h-[calc(100vh-100px)] items-center flex-1 overflow-y-auto p-5">
+        {/* make whatever div that's supposed to house Managa's scrollable within it's parent */}
+        {/* <Manga /> */}
       </div>
     </div>
   );
