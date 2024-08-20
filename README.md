@@ -8,25 +8,25 @@ I’m big into manga and manga reader apps, and I’ve always enjoyed developmen
 
 ## Current Status
 
-We’re in the early stages of development, so there’s not much to see yet. As we make progress, this README will be updated to reflect the latest changes.
+### Why the Switch to Electron?
 
-### Features Under Development:
+While Tauri offered a lightweight and secure framework, I've encountered performance bottlenecks on Linux that led me to switch to Electron. Electron's broader ecosystem and proven stability across platforms will ensure that Mirai performs optimally, providing a smoother user experience. The app will undergo a complete refactor during this transition, enhancing its overall functionality and user interface.
 
-- **Manga Search**: Search for manga titles and get relevant results using the MangaDex API.
-- **Advanced Filtering**: Filter search results by including or excluding specific tags.
-- **Manga Info Display**: View detailed information about manga, including titles, tags, reviews, and status.
+## Upcoming Features
 
-### Planned Features:
+As part of the refactor, I plan to introduce several new features to Mirai:
 
-- **Enhanced Search Options**: Better search features and filters to find exactly what you’re looking for.
-- **Bookmarking & Preferences**: Save your favorite manga, track your reading progress, and customize your experience.
-- **Offline Reading**: Download manga to read offline.
-- **User Profiles**: Create and manage profiles, save preferences, and allow for backups.
-- **Reading Tracking**: Track your reading progress and manage your manga library.
+- **At least three sources** (more later)
+- **All languages support**: The app will cater to users around the globe, offering manga in multiple languages.
+- **Reading modes**: The reader will be robust and flexible, supporting single page, double page, left-to-right, right-to-left, and continuous scroll modes.
+- **Customization**: Users will have the ability to adjust dynamic gaps, change background colors, and more.
+- **Download manga**: Users will be able to download manga for offline reading.
+- **Track your progress**: The app will include features for tracking your reading progress, bookmarks, and favorite manga.
+- **Dynamic and responsive UI**: The interface will be redesigned to be more responsive and user-friendly, with a focus on completeness and features
 
-## Getting Started
+## Soon
 
-Since the project is still in its early stages, you can’t set it up just yet. We’ll provide installation instructions as soon as it’s ready for you to start browsing manga.
+Stay tuned for the refactor update! The current version of Mirai is still available (still in production), but the new version built with Electron will be pushed soon.
 
 ## Contributing
 
