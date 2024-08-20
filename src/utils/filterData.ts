@@ -42,7 +42,11 @@ export const filterRelationships = (id: string, relationships: Relationship[]): 
       id: "",
       attributes: {
         fileName: "",
-        coverUrl: ""
+        coverUrl: {
+          original: "",
+          256: "",
+          512: "",
+        }
       }
     }
   };
@@ -64,6 +68,10 @@ export const filterRelationships = (id: string, relationships: Relationship[]): 
   const mangaId = id;
   const fileName = filteredRelationships.cover_art.attributes.fileName;
   const coverURL = `https://uploads.mangadex.org/covers/${mangaId}/${fileName}`;
-  filteredRelationships.cover_art.attributes.coverUrl = coverURL;
+  filteredRelationships.cover_art.attributes.coverUrl.original = coverURL;
+  const url256 = `${coverURL}.256.jpg`;
+  filteredRelationships.cover_art.attributes.coverUrl[256] = url256;
+  const url512 = `${coverURL}.512.jpg`;
+  filteredRelationships.cover_art.attributes.coverUrl[512]=url512;
   return filteredRelationships;
 };

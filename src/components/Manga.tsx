@@ -4,7 +4,10 @@ import { useAreaContext } from "../hooks/activeAreaContext";
 export const Manga = () => {
   const { setArea } = useAreaContext();
   return (
-    <div onClick={() => setArea("Preview")}>
+    <div
+      className="select-none cursor-pointer"
+      onClick={() => setArea("Preview")}
+    >
       <p>Manga</p>
     </div>
   );

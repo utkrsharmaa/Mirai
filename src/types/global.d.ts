@@ -76,8 +76,12 @@ type Relationships = {
   cover_art: {
     id: string,
     attributes: {
-      coverUrl: string;
-      fileName: string
+      coverUrl: {
+        original: string,
+        256: string,
+        512: string,
+      },
+      fileName: string;
     }
   };
 };
