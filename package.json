@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "scripts": {
+    "app": "cd app && cargo run --release",
+    "web": "cd website && bun run dev"
+  }
+}
