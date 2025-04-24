@@ -1,7 +1,10 @@
 [package]
-name = "app"
-version = "0.1.0"
+name = "mirai"
+version = "0.2.0"
 edition = "2024"
 
 [dependencies]
-eframe = "0.31.0"
+eframe = { version = "0.31.0", features = ["wgpu"] }
+re_ui = "0.23.0"
+egui_material_icons = "0.3.0"
+tokio = { version = "1.44.2", features = ["full"] }

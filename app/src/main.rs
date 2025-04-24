@@ -1,34 +1,16 @@
-use eframe::egui;
+use mirai::app::App;
 
-fn main() -> eframe::Result<()> {
+#[tokio::main]
+async fn main() -> eframe::Result<()> {
     let native_options = eframe::NativeOptions::default();
     eframe::run_native(
-        "Manga Reader",
+        "Mirai",
         native_options,
-        Box::new(|cc| Ok(Box::new(MyApp::new(cc)))),
+        Box::new(|cc| {
+            re_ui::apply_style_and_install_loaders(&cc.egui_ctx);
+            egui_material_icons::initialize(&cc.egui_ctx);
+            // Defining color theme
+            Ok(Box::new(App::new(cc)) as Box<dyn eframe::App>)
+        }),
     )
-}
-
-struct MyApp {
-    name: String,
-}
-
-impl MyApp {
-    fn new(_cc: &eframe::CreationContext<'_>) -> Self {
-        Self {
-            name: "Hello".to_string(),
-        }
-    }
-}
-
-impl eframe::App for MyApp {
-    fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
-        egui::CentralPanel::default().show(ctx, |ui| {
-            ui.heading("Mirai");
-            ui.text_edit_singleline(&mut self.name);
-            if ui.button("Click me").clicked() {
-                self.name = "Clicked!".to_string();
-            };
-        });
-    }
 }
