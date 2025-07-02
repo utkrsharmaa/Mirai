@@ -1,18 +1,18 @@
-use gtk::{Application, glib};
-use gtk::{ApplicationWindow, prelude::*};
+#![allow(unused)]
+use gtk::Application;
+use gtk::glib;
+use gtk::prelude::*;
 
-const APP_ID: &str = "org.gtk_rs.Mirai";
+mod application;
+mod backend;
+mod models;
+
+use crate::application::app::app;
+
+const APP_ID: &str = "com.utkrsharmaa.Mirai";
 
 fn main() -> glib::ExitCode {
-    let app = Application::builder().application_id(APP_ID).build();
-    app.connect_activate(ui);
-    app.run()
-}
-
-fn ui(app: &Application) {
-    let window = ApplicationWindow::builder()
-        .application(app)
-        .title("Mirai")
-        .build();
-    window.present();
+    let root = Application::builder().application_id(APP_ID).build();
+    root.connect_activate(app);
+    root.run()
 }
